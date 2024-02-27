@@ -1,0 +1,10 @@
+.Movie{
+    border: 1px solid white;
+    width: calc(20% - 2px);
+    align-content: center;
+
+
+}
+img{
+width: 100%;
+}

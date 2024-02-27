@@ -1,0 +1,11 @@
+.Header{
+    display: flex;
+    justify-content: space-between;
+    background-color: midnightblue;
+    color: azure;
+    margin: 0;
+}
+.navigateBox{
+    display: flex;
+
+}
