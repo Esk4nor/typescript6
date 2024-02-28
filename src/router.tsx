@@ -3,6 +3,8 @@ import {MainLayout} from "./layout/MainLayout";
 import {MoviePage} from "./page/MoviePage";
 import {GenrePage} from "./page/GenrePage";
 import {Movie} from "./components/MoviesContainer/Movie/Movie";
+import {GenreMovies} from "./components/Genre/GenreMovies";
+import {Genre} from "./components/Genre/Genre";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +19,7 @@ const router = createBrowserRouter([
             ,
             {
                 path:'genre', element:<GenrePage/>
+
             }
 
         ]

@@ -15,7 +15,7 @@ const urls = {
     },
     genres:{
         getAll:():string => `${genre}${movie}${list}`,
-        getByID:(id:number):string => `${genre}/${id}`
+        getByGenre:():string =>`${discover}${movie}`,
 
     }
 }

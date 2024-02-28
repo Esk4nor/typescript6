@@ -13,6 +13,7 @@ const Movie: FC<IProps> = () => {
     const {state} = useAppLocation<{movie:IResults}>();
     useEffect(() => {
         movieService.getById(state.movie.id).then(({data})=>setMovieDetails(data))
+        console.log(state.movie)
 
     }, []);
 

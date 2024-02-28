@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {IMovie} from "../../../interfaces/IMovie";
 
 interface IProps {
@@ -7,6 +7,7 @@ interface IProps {
 
 const MovieDetails: FC<IProps> = ({movieDetails}) => {
     const {genres, poster_path, runtime, release_date, overview, original_title} = movieDetails;
+
     console.log(genres)
 
     return (
