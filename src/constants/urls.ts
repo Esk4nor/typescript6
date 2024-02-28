@@ -10,8 +10,8 @@ const genre = '/genre'
 
 const urls = {
     movies:{
-        getAllMovie:():string =>`${discover}/${movie}`,
-        getByID:(id:number):string => `${discover}/${movie}/${id}`
+        getAllMovie:():string =>`${discover}${movie}`,
+        getByID:(id:number):string => `${movie}/${id}`
     }
 }
 

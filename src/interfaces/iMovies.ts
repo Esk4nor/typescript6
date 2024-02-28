@@ -15,11 +15,11 @@ interface IResults{
     vote_average: number,
     vote_count: number
 }
-interface IMovie{
+interface IMovies {
     page: number,
     results:IResults[],
     total_pages: number,
     total_results: number
 }
 
-export type {IMovie, IResults}
+export type {IMovies, IResults}

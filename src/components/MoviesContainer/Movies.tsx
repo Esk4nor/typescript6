@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {IMovie, IResults} from "../../interfaces/iMovie";
+import {IMovies, IResults} from "../../interfaces/iMovies";
 import {movieService} from "../../service/movieService";
 import {Movie} from "./Movie";
 import css from './Movies.module.css'
@@ -11,9 +11,9 @@ interface IProps {
 const Movies: FC<IProps> = () => {
     const [query, setQuery] = useSearchParams({pages: '1'});
     const pages = query.get('pages')
-    const [movies, setMovies] = useState<IMovie>({page: null, results:[], total_results:null,total_pages:null})
+    const [movies, setMovies] = useState<IMovies>({page: null, results:[], total_results:null,total_pages:null})
     useEffect(() => {
-        movieService.getAll(pages).then(({data})=>setMovies(():IMovie=>{
+        movieService.getAll(pages).then(({data})=>setMovies(():IMovies=>{
             const {page, results,total_pages,total_results} = data;
             return {page, results, total_pages, total_results}
         }))
