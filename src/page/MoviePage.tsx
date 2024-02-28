@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
-import {MovieContainer} from "../components";
+import {MoviesContainer} from "../components/MoviesContainer/MoviesContainer";
+
 
 interface IProps {
 }
@@ -7,7 +8,7 @@ interface IProps {
 const MoviePage: FC<IProps> = () => {
     return (
         <div>
-            <MovieContainer/>
+           <MoviesContainer/>
         </div>
     );
 };

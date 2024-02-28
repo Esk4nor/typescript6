@@ -9,6 +9,7 @@ interface IMovie{
     release_date: number,
     runtime: number,
     poster_path: string,
+    id: number
 }
 
 export type {

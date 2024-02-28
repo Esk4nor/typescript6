@@ -1,14 +1,14 @@
 import React, {FC, useEffect, useState} from 'react';
-import {IMovies, IResults} from "../../interfaces/iMovies";
+import {IMovies} from "../../interfaces/iMovies";
 import {movieService} from "../../service/movieService";
-import {Movie} from "./Movie";
-import css from './Movies.module.css'
+import {Movies} from "./Movies/Movies";
+import css from './Movies/Movies.module.css'
 import {useSearchParams} from "react-router-dom";
 
 interface IProps {
 }
 
-const Movies: FC<IProps> = () => {
+const MoviesContainer: FC<IProps> = () => {
     const [query, setQuery] = useSearchParams({pages: '1'});
     const pages = query.get('pages')
     const [movies, setMovies] = useState<IMovies>({page: null, results:[], total_results:null,total_pages:null})
@@ -20,15 +20,15 @@ const Movies: FC<IProps> = () => {
     }, [pages]);
 
 
-const nextPage = ()=>{
-    setQuery(prev => {
-        console.log(prev)
-        prev.set('pages', (+prev.get('pages') + 1 ).toString())
+    const nextPage = ()=>{
+        setQuery(prev => {
+            console.log(prev)
+            prev.set('pages', (+prev.get('pages') + 1 ).toString())
 
-        return prev
+            return prev
 
-    })
-}
+        })
+    }
     const prevPage = ()=>{
         setQuery(prev => {
             console.log(prev)
@@ -42,11 +42,11 @@ const nextPage = ()=>{
 
     return (
         <div className={css.Movies}>
-            {movies.results.map(movie=><Movie key={movie.id} movie={movie}/>)}
+            {movies.results.map(movie=><Movies key={movie.id} movie={movie}/>)}
             <button onClick={prevPage}>prev</button>
             <button onClick={nextPage}>next</button>
         </div>
     );
 };
 
-export {Movies};
+export {MoviesContainer}

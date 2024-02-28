@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
-import {IResults} from "../../interfaces/iMovies";
-import css from './Movie.module.css'
+import {IResults} from "../../../interfaces/iMovies";
+import css from '../Movie/Movie.module.css'
 import {useNavigate} from "react-router-dom";
 
 
@@ -8,7 +8,7 @@ interface IProps {
     movie:IResults
 }
 
-const Movie: FC<IProps> = ({movie}) => {
+const Movies: FC<IProps> = ({movie}) => {
     const navigate = useNavigate();
     const {title,poster_path,id} = movie;
     return (
@@ -24,4 +24,4 @@ const Movie: FC<IProps> = ({movie}) => {
     );
 };
 
-export {Movie};
+export {Movies};
