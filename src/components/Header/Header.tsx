@@ -1,11 +1,13 @@
-import React, {FC} from 'react';
+import React, {Component, FC} from 'react';
 import css from './Header.module.css'
 import {NavLink} from "react-router-dom";
+
 
 interface IProps {
 }
 
 const Header: FC<IProps> = () => {
+
     return (
         <div className={css.Header}>
             <div>
@@ -14,7 +16,10 @@ const Header: FC<IProps> = () => {
                 <NavLink to={'movie'}>Movie</NavLink>
                 <NavLink to={'genre'}>Genre</NavLink>
                 </div>
-                <div>Team</div>
+                <label>Click for change team
+                    <input type="checkbox"/>
+                </label>
+
             </div>
             <div>
                 <div>Name</div>
@@ -22,6 +27,6 @@ const Header: FC<IProps> = () => {
             </div>
         </div>
     );
-};
+        };
 
 export {Header};

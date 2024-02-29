@@ -1,22 +1,46 @@
-import React, {FC, useEffect, useState} from 'react';
-import {IGenreResults} from "../../interfaces/IGenre";
+import React, {FC, useContext, useEffect, useState} from 'react';
+
+
 import {genreService} from "../../service/genreService";
-import {Genre} from "./Genre";
+import {Context} from "../../hoc/ContextProvider";
+import {useSearchParams} from "react-router-dom";
+import {IMovies} from "../../interfaces/iMovies";
+import {GenreMovies} from "./GenreMovies";
+import css from './GenreContainer.module.css'
 
 interface IProps {
 }
 
 const GenreContainer: FC<IProps> = () => {
-    const [genresState, setGenres] = useState<IGenreResults>({genres:[]})
-    useEffect(() => {
-        genreService.getAll().then(({data})=> setGenres(data))
 
-    }, []);
+    const {genres} = useContext(Context)
+    const [queryGenre, setQueryGenre] = useSearchParams({with_genres:'0'});
+    const withGenre= queryGenre.get('with_genres')
+    const [genreMovie, setGenreMovie] = useState<IMovies>({page: null, results:[], total_results:null,total_pages:null});
+
+
+
+
+    useEffect(() => {
+
+        genreService.getByGenre(withGenre).then(({data})=>setGenreMovie(data))
+
+
+    }, [queryGenre]);
+
     return (
         <div>
-            {genresState.genres.map(genre=><Genre key={genre.id} genre={genre}/>)}
-        </div>
-    );
-};
+            <div className={css.genreBox}>
+            {genres.map(genre => <div key={genre.id} onClick={() => setQueryGenre({with_genres: genre.id.toString()})}>{genre.name} </div>)}
+
+            </div>
+            <div className={css.GenreContainer}>
+            {genreMovie.results.map(genre => <GenreMovies key={genre.id} genre={genre}/>)}
+
+            </div>
+
+                </div>
+                );
+            };
 
 export {GenreContainer};

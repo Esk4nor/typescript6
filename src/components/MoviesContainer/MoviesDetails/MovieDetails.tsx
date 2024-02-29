@@ -6,6 +6,7 @@ interface IProps {
 }
 
 const MovieDetails: FC<IProps> = ({movieDetails}) => {
+
     const {genres, poster_path, runtime, release_date, overview, original_title} = movieDetails;
 
     console.log(genres)
@@ -14,7 +15,7 @@ const MovieDetails: FC<IProps> = ({movieDetails}) => {
         <div>
             <img src={'https://image.tmdb.org/t/p/w500/' + poster_path} alt=""/>
             <div>
-                {genres.map(genre =><div key={genre.id}>{genre.name}</div>)}
+                {genres.map(genre =><div>{genre.name}</div>)}
 
                 <div>{runtime}</div>
                 <div>{release_date}</div>

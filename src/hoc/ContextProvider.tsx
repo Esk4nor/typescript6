@@ -1,16 +1,25 @@
-import React, {createContext, FC, PropsWithChildren} from 'react';
+import React, {createContext, FC, PropsWithChildren, useEffect, useState} from 'react';
+
+import {genreService} from "../service/genreService";
+
+import {IGenre, IGenreResults} from "../interfaces/IGenre";
 
 
-const Context = createContext<number>(null)
+const Context = createContext<IGenreResults>(null)
 
 interface IProps extends PropsWithChildren{
 
 }
 
 const ContextProvider: FC<IProps> = ({children}) => {
+    const [genresResults, setGenres] = useState<IGenreResults>({genres:[]})
+    useEffect(() => {
+        genreService.getAll().then(({data})=> setGenres(data))
+
+    }, []);
     return (
         <div>
-            <Context.Provider value={111}>
+            <Context.Provider value={genresResults}>
                 {children}
             </Context.Provider>
         </div>
