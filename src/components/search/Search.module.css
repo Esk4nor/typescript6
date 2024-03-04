@@ -1,0 +1,16 @@
+.Search{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    flex-direction: column;
+
+}
+.box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+
+}
