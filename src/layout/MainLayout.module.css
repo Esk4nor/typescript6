@@ -1,0 +1,11 @@
+.mainLayoutDark{
+    background-color: black;
+    color: white;
+}
+.mainLayoutWhite{
+    background-color: white;
+    color: black;
+}
+.mainLayoutWhite>a{
+    color: black;
+}

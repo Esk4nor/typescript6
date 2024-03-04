@@ -4,14 +4,14 @@ import {movieService} from "../../service/movieService";
 import {Movies} from "./Movies/Movies";
 import css from './Movies/Movies.module.css'
 import {useSearchParams} from "react-router-dom";
+import {usePageQuery} from "../../hooks/usePageQuery";
 
 interface IProps {
 }
 
 const MoviesContainer: FC<IProps> = () => {
-    const [query, setQuery] = useSearchParams({pages: '1'});
-    const [disabled, setDisabled] = useState<boolean>(null)
-    const pages = query.get('pages')
+    const {disabled,setDisabled,nextPage,pages,prevPage} = usePageQuery();
+
     const [movies, setMovies] = useState<IMovies>({page: null, results:[], total_results:null,total_pages:null})
     useEffect(() => {
         movieService.getAll(pages).then(({data})=>setMovies(()=>{
@@ -25,28 +25,7 @@ const MoviesContainer: FC<IProps> = () => {
     }, [pages]);
 
 
-    const nextPage = ()=>{
 
-        setQuery(prev => {
-            console.log(prev)
-            prev.set('pages', (+prev.get('pages') + 1 ).toString())
-            if(disabled){
-                setDisabled(false)
-            }
-            return prev
-
-        })
-    }
-    const prevPage = ()=>{
-
-        setQuery(prev => {
-            console.log(prev)
-            prev.set('pages', (+prev.get('pages') - 1 ).toString())
-
-            return prev
-
-        })
-    }
 
 
 

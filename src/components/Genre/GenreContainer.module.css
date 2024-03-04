@@ -8,3 +8,15 @@
     display: flex;
     justify-content: space-around;
 }
+.genreButton{
+    background-color: khaki;
+    border: 1px solid gainsboro;
+    border-radius: 2px;
+    margin: 2px;
+    padding: 3px;
+}
+.buttonFlex{
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+}

@@ -5,7 +5,7 @@ const baseURL = 'https://api.themoviedb.org/3'
 const movie = '/movie'
 const list = '/list'
 const discover = '/discover'
-const search = '/search'
+const search = '/search/movie'
 const genre = '/genre'
 
 const urls = {
@@ -17,6 +17,9 @@ const urls = {
         getAll:():string => `${genre}${movie}${list}`,
         getByGenre:():string =>`${discover}${movie}`,
 
+    },
+    search:{
+        base:search
     }
 }
 

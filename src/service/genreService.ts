@@ -7,7 +7,7 @@ import {IMovies} from "../interfaces/iMovies";
 
 const genreService = {
     getAll:():IRes<IGenreResults>=>apiService.get(urls.genres.getAll()),
-    getByGenre:(with_genres:string):IRes<IMovies> =>apiService.get(urls.movies.getAllMovie(), {params:{with_genres}}),
+    getByGenre:(with_genres:string, page:string):IRes<IMovies> =>apiService.get(urls.movies.getAllMovie(), {params:{with_genres,page}}),
 }
 
 

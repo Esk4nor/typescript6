@@ -1,6 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {useAppLocation} from "../../../hooks/useAppLocation";
-import {IResults} from "../../../interfaces/iMovies";
+
 import {movieService} from "../../../service/movieService";
 import {IMovie} from "../../../interfaces/IMovie";
 import {MovieDetails} from "../MoviesDetails/MovieDetails";
@@ -14,7 +13,7 @@ const Movie: FC<IProps> = () => {
     const {id} = useParams();
     useEffect(() => {
         movieService.getById(+id).then(({data})=>setMovieDetails(data))
-        console.log(id)
+
 
     }, []);
 

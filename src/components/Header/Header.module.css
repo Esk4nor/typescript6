@@ -1,11 +1,28 @@
 .Header{
     display: flex;
     justify-content: space-between;
+    background-color: powderblue;
+    color: azure;
+    margin: 0;
+    padding: 2px;
+    border-radius: 3px;
+}
+.Headerdark{
+    display: flex;
+    justify-content: space-between;
     background-color: midnightblue;
     color: azure;
     margin: 0;
+    padding: 2px;
+    border-radius: 3px;
 }
 .navigateBox{
     display: flex;
 
+}
+.paddingSt{
+    padding-right: 5px;
+}
+a{
+    color: white;
 }
